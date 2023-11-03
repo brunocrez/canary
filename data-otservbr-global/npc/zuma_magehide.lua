@@ -72,6 +72,12 @@ npcConfig.shop = {
 	{ itemName = "strange talisman", clientId = 3045, buy = 100, count = 200 },
 	{ itemName = "sword ring", clientId = 3091, buy = 500 },
 	{ itemName = "time ring", clientId = 3053, buy = 5000 },
+	{ itemName = "ring of blue plasma", clientId = 23529, buy = 15000 },
+	{ itemName = "ring of green plasma", clientId = 23531, buy = 15000 },
+	{ itemName = "ring of red plasma", clientId = 23533, buy = 15000 },
+	{ itemName = "collar of blue plasma", clientId = 23542, buy = 15000 },
+	{ itemName = "collar of green plasma", clientId = 23543, buy = 15000 },
+	{ itemName = "collar of red plasma", clientId = 23544, buy = 15000 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
