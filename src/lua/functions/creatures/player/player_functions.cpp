@@ -1169,6 +1169,20 @@ int PlayerFunctions::luaPlayerSetSkillLevel(lua_State* L) {
 	return 1;
 }
 
+int PlayerFunctions::luaPlayerSetFistSkill(lua_State* L) {
+	// player:setFistSkill()
+	std::shared_ptr<Player> player = getUserdataShared<Player>(L, 1);
+	if (!player) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->setFistSkill();
+	pushBoolean(L, true);
+	return 1;
+}
+
 int PlayerFunctions::luaPlayerAddOfflineTrainingTime(lua_State* L) {
 	// player:addOfflineTrainingTime(time)
 	std::shared_ptr<Player> player = getUserdataShared<Player>(L, 1);
