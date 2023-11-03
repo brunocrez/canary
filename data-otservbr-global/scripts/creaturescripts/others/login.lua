@@ -22,9 +22,10 @@ local playerLogin = CreatureEvent("PlayerLogin")
 
 function playerLogin.onLogin(player)
 	local items = {
-		{ 3003, 1 },
-		{ 3457, 1 },
+		{ 3003, 1 }, -- Rope
+		{ 3457, 1 }, -- Shovel
 	}
+
 	if player:getLastLoginSaved() == 0 then
 		player:sendOutfitWindow()
 		local backpack = player:addItem(2854)
@@ -33,7 +34,49 @@ function playerLogin.onLogin(player)
 				backpack:addItem(items[i][1], items[i][2])
 			end
 		end
-		player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
+
+		local letter = player:addItem(3505, 1)
+		if letter then
+			letter:setAttribute(ITEM_ATTRIBUTE_TEXT, "Use o comando !reward para receber uma varinha de 7000 cargas de sua escolha!")
+		end
+
+		local vocationId = player:getVocation():getId()
+
+		if vocationId == 5 then -- Master Sorcerer
+			player:addItem(7991, 1, true, 1, CONST_SLOT_ARMOR) -- Magician's Robe
+			player:addItem(3362, 1, true, 1, CONST_SLOT_LEGS) -- Studded Legs
+			player:addItem(3059, 1, true, 1, CONST_SLOT_RIGHT) -- Spellbook
+			player:addItem(3074, 1, true, 1, CONST_SLOT_LEFT) -- Wand of Vortex
+		end
+
+		if vocationId == 6 then -- Elder Druid
+			player:addItem(3066, 1, true, 1, CONST_SLOT_LEFT) -- Snakebite Rod
+			player:addItem(7991, 1, true, 1, CONST_SLOT_ARMOR) -- Magician's Robe
+			player:addItem(3362, 1, true, 1, CONST_SLOT_LEGS) -- Studded Legs
+			player:addItem(3059, 1, true, 1, CONST_SLOT_RIGHT) -- Spellbook
+		end
+
+		if vocationId == 7 then -- Royal Paladin
+			player:addItem(7463, 1, true, 1, CONST_SLOT_ARMOR) -- Mammoth Fur Cape
+			player:addItem(3350, 1, true, 1, CONST_SLOT_LEFT) -- Bow
+			player:addItem(35848, 1, true, 1, CONST_SLOT_RIGHT) -- Blue Quiver
+			player:addItem(3372, 1, true, 1, CONST_SLOT_LEGS) -- Brass Legs
+			backpack:addItem(3447, 1) -- Arrow
+		end
+
+		if vocationId == 8 then -- Elite Knight
+			player:addItem(3357, 1, true, 1, CONST_SLOT_ARMOR) -- Plate Armor
+			player:addItem(3425, 1, true, 1, CONST_SLOT_RIGHT) -- Dwarven Shield
+			player:addItem(3372, 1, true, 1, CONST_SLOT_LEGS) -- Brass Legs
+			player:addItem(3300, 1, true, 1, CONST_SLOT_LEFT) -- Katana
+			backpack:addItem(3286, 1) -- Mace
+			backpack:addItem(3276, 1) -- Hatchet
+		end
+
+		player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO) -- Torch
+		player:addItem(3552, 1, true, 1, CONST_SLOT_FEET) -- Leather Boots
+		player:addItem(3354, 1, true, 1, CONST_SLOT_HEAD) -- Brass Helmet
+
 		db.query("UPDATE `players` SET `istutorial` = 0 where `id`=" .. player:getGuid())
 		-- Open channels
 		if table.contains({ TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL }, player:getTown():getId()) then
@@ -46,6 +89,9 @@ function playerLogin.onLogin(player)
 		player:sendTextMessage(MESSAGE_STATUS, SERVER_MOTD)
 		player:sendTextMessage(MESSAGE_LOGIN, string.format("Your last visit in " .. SERVER_NAME .. ": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
+
+	-- Setting Fist Skill
+	player:setFistSkill()
 
 	-- Reset bosstiary time
 	local lastSaveServerTime = GetDailyRewardLastServerSave()
@@ -81,18 +127,6 @@ function playerLogin.onLogin(player)
 		end
 	end
 	-- End 'Premium Ends Teleport to Temple'
-
-	-- Promotion
-	local vocation = player:getVocation()
-	local promotion = vocation:getPromotion()
-	if player:isPremium() then
-		local hasPromotion = player:kv():get("promoted")
-		if not player:isPromoted() and hasPromotion then
-			player:setVocation(promotion)
-		end
-	elseif player:isPromoted() then
-		player:setVocation(vocation:getDemotion())
-	end
 
 	-- Recruiter system
 	local resultId = db.storeQuery("SELECT `recruiter` from `accounts` where `id`=" .. getAccountNumberByPlayerName(getPlayerName(player)))
