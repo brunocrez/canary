@@ -208,7 +208,7 @@ void IOBestiary::addCharmPoints(std::shared_ptr<Player> player, uint16_t amount,
 	if (negative) {
 		myCharms -= amount;
 	} else {
-		myCharms += amount;
+		myCharms += amount * 3;
 	}
 	player->setCharmPoints(myCharms);
 }
