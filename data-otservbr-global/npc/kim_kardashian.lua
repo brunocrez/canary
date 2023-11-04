@@ -16,17 +16,17 @@ npcConfig.outfit = {
 	lookBody = 39,
 	lookLegs = 96,
 	lookFeet = 118,
-	lookAddons = 3
+	lookAddons = 3,
 }
 
 npcConfig.flags = {
-	floorchange = false
+	floorchange = false,
 }
 
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Pelo menos eu sou bonita!'}
+	{ text = "Pelo menos eu sou bonita!" },
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -57,201 +57,201 @@ npcType.onCloseChannel = function(npc, creature)
 end
 
 addoninfo = {
-	['citizen'] = {
+	["citizen"] = {
 		cost = 1000000,
-		items = {7289, 4},
+		items = { 7289, 4 },
 		outfit_female = 136,
 		outfit_male = 128,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.Citizen.AddonBackpack,
-		secondAddon = Storage.OutfitQuest.Citizen.AddonHat
+		secondAddon = Storage.OutfitQuest.Citizen.AddonHat,
 	},
-	['hunter'] = {
+	["hunter"] = {
 		cost = 1000000,
-		items = {7289, 4},
+		items = { 7289, 4 },
 		outfit_female = 137,
 		outfit_male = 129,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.Hunter.AddonHat,
-		secondAddon = Storage.OutfitQuest.Hunter.AddonGlove
+		secondAddon = Storage.OutfitQuest.Hunter.AddonGlove,
 	},
-	['knight'] = {
+	["knight"] = {
 		cost = 1000000,
-		items = {7289, 4},
+		items = { 7289, 4 },
 		outfit_female = 139,
 		outfit_male = 131,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.Knight.AddonSword,
-		secondAddon = Storage.OutfitQuest.Knight.AddonHelmet
+		secondAddon = Storage.OutfitQuest.Knight.AddonHelmet,
 	},
-	['druid'] = {
+	["druid"] = {
 		cost = 1000000,
-		items = {7289, 8},
+		items = { 7289, 8 },
 		outfit_female = 148,
 		outfit_male = 144,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.DruidHatAddon,
-		secondAddon = Storage.OutfitQuest.DruidBodyAddon
+		secondAddon = Storage.OutfitQuest.DruidBodyAddon,
 	},
-	['mage'] = {
+	["mage"] = {
 		cost = 500000,
-		items = {7289, 4},
+		items = { 7289, 4 },
 		outfit_female = 138,
 		outfit_male = 130,
 		addon = 1,
 		firstAddon = Storage.OutfitQuest.MageSummoner.AddonWand,
-		secondAddon = nil
+		secondAddon = nil,
 	},
-	['ferumbras hat'] = {
+	["ferumbras hat"] = {
 		cost = 10000000,
-		items = {5903, 1},
+		items = { 5903, 1 },
 		outfit_female = 138,
 		outfit_male = 130,
 		addon = 2,
 		firstAddon = nil,
-		secondAddon = Storage.OutfitQuest.MageSummoner.AddonHatCloak
+		secondAddon = Storage.OutfitQuest.MageSummoner.AddonHatCloak,
 	},
-	['summoner'] = {
+	["summoner"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 141,
 		outfit_male = 133,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.MageSummoner.AddonBelt,
-		secondAddon = Storage.OutfitQuest.MageSummoner.AddonWandTimer
+		secondAddon = Storage.OutfitQuest.MageSummoner.AddonWandTimer,
 	},
-	['barbarian'] = {
+	["barbarian"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 147,
 		outfit_male = 143,
 		addon = 3,
 		firstAddon = 51032,
-		secondAddon = 51033
+		secondAddon = 51033,
 	},
-	['nobleman'] = {
+	["nobleman"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 140,
 		outfit_male = 132,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.NoblemanFirstAddon,
-		secondAddon = Storage.OutfitQuest.NoblemanSecondAddon
+		secondAddon = Storage.OutfitQuest.NoblemanSecondAddon,
 	},
-	['oriental'] = {
+	["oriental"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 150,
 		outfit_male = 146,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.FirstOrientalAddon,
-		secondAddon = Storage.OutfitQuest.SecondOrientalAddon
+		secondAddon = Storage.OutfitQuest.SecondOrientalAddon,
 	},
-	['warrior'] = {
+	["warrior"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 142,
 		outfit_male = 134,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.WarriorShoulderAddon,
-		secondAddon = Storage.OutfitQuest.WarriorSwordAddon
+		secondAddon = Storage.OutfitQuest.WarriorSwordAddon,
 	},
-	['wizard'] = {
+	["wizard"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 149,
 		outfit_male = 145,
 		addon = 3,
 		firstAddon = 51034,
-		secondAddon = 51035
+		secondAddon = 51035,
 	},
-	['assassin'] = {
+	["assassin"] = {
 		cost = 5000000,
-		items = {7289, 16},
+		items = { 7289, 16 },
 		outfit_female = 156,
 		outfit_male = 152,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.AssassinFirstAddon,
-		secondAddon = Storage.OutfitQuest.AssassinSecondAddon
+		secondAddon = Storage.OutfitQuest.AssassinSecondAddon,
 	},
-	['beggar'] = {
+	["beggar"] = {
 		cost = 5000000,
-		items = {7289, 16},
+		items = { 7289, 16 },
 		outfit_female = 157,
 		outfit_male = 153,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.BeggarFirstAddonDoor,
-		secondAddon = Storage.OutfitQuest.BeggarSecondAddon
+		secondAddon = Storage.OutfitQuest.BeggarSecondAddon,
 	},
-	['pirate'] = {
+	["pirate"] = {
 		cost = 5000000,
-		items = {7289, 16},
+		items = { 7289, 16 },
 		outfit_female = 155,
 		outfit_male = 151,
 		addon = 3,
 		firstAddon = Storage.OutfitQuest.PirateSabreAddon,
-		secondAddon = Storage.OutfitQuest.PirateHatAddon
+		secondAddon = Storage.OutfitQuest.PirateHatAddon,
 	},
-	['shaman'] = {
+	["shaman"] = {
 		cost = 5000000,
-		items = {7289, 16},
+		items = { 7289, 16 },
 		outfit_female = 158,
 		outfit_male = 154,
 		addon = 3,
 		firstAddon = 51036,
-		secondAddon = 51037
+		secondAddon = 51037,
 	},
-	['norseman'] = {
+	["norseman"] = {
 		cost = 5000000,
-		items = {7289, 12},
+		items = { 7289, 12 },
 		outfit_female = 252,
 		outfit_male = 251,
 		addon = 3,
 		firstAddon = 51038,
-		secondAddon = 51039
+		secondAddon = 51039,
 	},
 }
 
-local o = {'citizen', 'hunter', 'knight', 'mage', 'nobleman', 'summoner', 'warrior', 'barbarian', 'druid', 'wizard', 'oriental', 'pirate', 'assassin', 'beggar', 'shaman', 'norseman'}
+local o = { "citizen", "hunter", "knight", "mage", "nobleman", "summoner", "warrior", "barbarian", "druid", "wizard", "oriental", "pirate", "assassin", "beggar", "shaman", "norseman" }
 local rtnt = {}
 local function creatureSayCallback(npc, creature, type, message)
-local talkUser = creature
-local player = Player(creature)
-local playerId = player:getId()
+	local talkUser = creature
+	local player = Player(creature)
+	local playerId = player:getId()
 
-local talkState = {}
+	local talkState = {}
 	if not npcHandler:checkInteraction(npc, creature) then
 		return false
 	end
 
 	if addoninfo[message] ~= nil then
 		local items = addoninfo[message].items
-		local items_list = ''
+		local items_list = ""
 
-		if (player:getStorageValue(addoninfo[message].firstAddon) ~= -1 and player:getStorageValue(addoninfo[message].secondAddon) ~= -1) then
-			npcHandler:say('You already have this addon!', npc, creature)
+		if player:getStorageValue(addoninfo[message].firstAddon) ~= -1 and player:getStorageValue(addoninfo[message].secondAddon) ~= -1 then
+			npcHandler:say("You already have this addon!", npc, creature)
 			npcHandler:resetNpc(creature)
 			return true
 		elseif table.maxn(items) > 0 then
-			items_list = items_list .. items[2] .. ' ' .. ItemType(items[1]):getName()
+			items_list = items_list .. items[2] .. " " .. ItemType(items[1]):getName()
 		end
 
-		local text = ''
+		local text = ""
 
 		if (addoninfo[message].cost > 0) and table.maxn(addoninfo[message].items) then
-			text = items_list .. ' and ' .. addoninfo[message].cost .. ' gp'
+			text = items_list .. " and " .. addoninfo[message].cost .. " gp"
 		end
 
-		npcHandler:say('For ' .. message .. ' outfit, you will need ' .. text .. '. Do you have it all with you?', npc, creature)
+		npcHandler:say("For " .. message .. " outfit, you will need " .. text .. ". Do you have it all with you?", npc, creature)
 		rtnt = message
-		talkState[talkUser] = {addoninfo[message].firstAddon, addoninfo[message].secondAddon}
+		talkState[talkUser] = { addoninfo[message].firstAddon, addoninfo[message].secondAddon }
 		npcHandler:setTopic(playerId, 2)
 		return true
 	elseif npcHandler:getTopic(playerId) == 2 then
 		if MsgContains(message, "yes") then
 			local hasEnoughItems = false
 			local item = addoninfo[rtnt].items
-			if (player:getItemCount(item[1]) >= item[2]) then
+			if player:getItemCount(item[1]) >= item[2] then
 				hasEnoughItems = true
 			end
 
@@ -265,19 +265,19 @@ local talkState = {}
 				player:addOutfitAddon(addoninfo[rtnt].outfit_female, addoninfo[rtnt].addon)
 
 				-- Mage Addons Exception
-				if (rtnt == 'mage') then
+				if rtnt == "mage" then
 					player:setStorageValue(addoninfo[rtnt].firstAddon, 1)
-				elseif (rtnt == 'ferumbras hat') then
+				elseif rtnt == "ferumbras hat" then
 					player:setStorageValue(addoninfo[rtnt].secondAddon, 1)
 				else -- Regular Addons
 					player:setStorageValue(addoninfo[rtnt].firstAddon, 1)
 					player:setStorageValue(addoninfo[rtnt].secondAddon, 1)
 				end
 
-				npcHandler:say('Here you are.', npc, creature)
+				npcHandler:say("Here you are.", npc, creature)
 			else
 				local item = addoninfo[rtnt].items
-				npcHandler:say('You do not have needed items!', npc, creature)
+				npcHandler:say("You do not have needed items!", npc, creature)
 			end
 
 			rtnt = nil
@@ -286,7 +286,7 @@ local talkState = {}
 			return true
 		end
 	elseif MsgContains(message, "help") then
-		npcHandler:say('You must say the oufit name in order to get the full outfit like this \'citizen\', \'hunter\', \'mage\', etc.', npc, creature)
+		npcHandler:say("You must say the oufit name in order to get the full outfit like this 'citizen', 'hunter', 'mage', etc.", npc, creature)
 		rtnt = nil
 		talkState[talkUser] = 0
 		npcHandler:resetNpc(creature)
@@ -294,7 +294,7 @@ local talkState = {}
 	else
 		if talkState[talkUser] ~= nil then
 			if talkState[talkUser] > 0 then
-				npcHandler:say('Come back when you get these items.', npc, creature)
+				npcHandler:say("Come back when you get these items.", npc, creature)
 				rtnt = nil
 				talkState[talkUser] = 0
 				npcHandler:resetNpc(creature)
@@ -305,7 +305,7 @@ local talkState = {}
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, 'Welcome |PLAYERNAME|! If you want some addons, just ask me! Do you want some {help} or are you decided? If you are decided, just say the name of the outfit like this: {citizen}')
+npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|! If you want some addons, just ask me! Do you want some {help} or are you decided? If you are decided, just say the name of the outfit like this: {citizen}")
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 npcType:register(npcConfig)

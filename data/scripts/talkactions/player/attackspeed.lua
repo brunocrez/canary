@@ -5,7 +5,7 @@ function attackSpeed.onSay(player, words, param)
 	local finalSpeed = 1000 - attackSpeed
 	local text = "AttackSpeed Atual: " .. tostring(1000 / finalSpeed):sub(1, 4) .. " ataques por segundo.\n" .. "\nPara aumentar sua velocidade de ataque treine seu Fist Fighting!"
 
-	player:popupFYI(text)	
+	player:popupFYI(text)
 	return true
 end
 
