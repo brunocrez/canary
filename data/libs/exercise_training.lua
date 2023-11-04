@@ -93,18 +93,27 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 	end
 
 	local isMagic = ExerciseWeaponsTable[weaponId].skill == SKILL_MAGLEVEL
+	local isShield = ExerciseWeaponsTable[weaponId].skill == SKILL_SHIELD
+
 	if not dummies[dummyId] then
 		return false
 	end
 	local rate = dummies[dummyId] / 100
+	local multiplier = 3400
 
 	if isMagic then
-		player:addManaSpent(500 * rate)
+		player:addManaSpent(500 * rate * multiplier)
+		player:addSkillTries(SKILL_FIST, 8 * rate * multiplier)
+		player:addSkillTries(SKILL_SHIELD, 3 * rate * multiplier)
 	else
-		player:addSkillTries(ExerciseWeaponsTable[weaponId].skill, 7 * rate)
+		player:addSkillTries(ExerciseWeaponsTable[weaponId].skill, 7 * rate * multiplier)
+		player:addSkillTries(SKILL_FIST, 8 * rate * multiplier)
+		if not isShield then
+			player:addSkillTries(SKILL_SHIELD, 3 * rate * multiplier)
+		end
 	end
 
-	weapon:setAttribute(ITEM_ATTRIBUTE_CHARGES, (weaponCharges - 1))
+	weapon:setAttribute(ITEM_ATTRIBUTE_CHARGES, (weaponCharges - multiplier))
 	tilePosition:sendMagicEffect(CONST_ME_HITAREA)
 
 	if ExerciseWeaponsTable[weaponId].effect then
@@ -113,12 +122,15 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 
 	if weapon:getAttribute(ITEM_ATTRIBUTE_CHARGES) <= 0 then
 		weapon:remove(1)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon has disappeared.")
-		LeaveTraining(playerId)
-		return false
+		local weapon = player:getItemById(weaponId, true)
+		if not weapon or (not weapon:isItem() or not weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES)) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon has disappeared.")
+			LeaveTraining(playerId)
+			return false
+		end
 	end
 
 	local vocation = player:getVocation()
-	onExerciseTraining[playerId].event = addEvent(ExerciseEvent, vocation:getBaseAttackSpeed() / configManager.getFloat(configKeys.RATE_EXERCISE_TRAINING_SPEED), playerId, tilePosition, weaponId, dummyId)
+	onExerciseTraining[playerId].event = addEvent(ExerciseEvent, 200, playerId, tilePosition, weaponId, dummyId)
 	return true
 end
