@@ -78,12 +78,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ name = "gold coin", chance = 100000, maxCount = 4 },
+	{ name = "gold coin", chance = 100000, minCount = 32, maxCount = 66 },
 	{ id = 3607, chance = 39410 }, -- cheese
 }
 
 monster.attacks = {
-	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -8 },
+	{ name = "melee", interval = 1000, chance = 100, minDamage = 0, maxDamage = -8 },
 }
 
 monster.defenses = {
