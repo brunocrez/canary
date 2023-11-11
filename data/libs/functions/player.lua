@@ -592,24 +592,33 @@ function Player:calculateLootFactor(monster)
 		end
 	end
 
-	local vipActivators = 0
-	local vipBoost = 0
+	local bonusPerSkill = 0.235
+	local boostActivator = 0
+	local lootBoost = 0
 	local suffix = ""
 
 	for _, participant in ipairs(participants) do
-		if participant:isVip() then
-			local boost = configManager.getNumber(configKeys.VIP_BONUS_LOOT)
-			boost = ((boost > 100 and 100) or boost) / 100
-			vipBoost = vipBoost + boost
-			vipActivators = vipActivators + 1
+		-- if participant:isVip() then
+		-- 	local boost = configManager.getNumber(configKeys.VIP_BONUS_LOOT)
+		-- 	boost = ((boost > 100 and 100) or boost) / 100
+		-- 	vipBoost = vipBoost + boost
+		-- 	vipActivators = vipActivators + 1
+		-- end
+		local bonusParticipant = participant:getSkillLevel(SKILL_FISHING) - 10
+		local lootBonus = (bonusParticipant * bonusPerSkill) / 100
+
+		lootBoost = lootBoost + lootBonus
+
+		if lootBonus > 0 then
+			boostActivator = boostActivator + 1
 		end
 	end
-	if vipActivators > 0 then
-		vipBoost = vipBoost / (vipActivators ^ configManager.getFloat(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
-		factor = factor * (1 + vipBoost)
+	if boostActivator > 0 then
+		lootBoost = lootBoost / (boostActivator ^ configManager.getFloat(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
+		factor = factor * (1 + lootBoost)
 	end
-	if vipBoost > 0 then
-		suffix = suffix .. (" (vip bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
+	if lootBoost > 0 then
+		suffix = suffix .. (" (loot bonus: %d%%)"):format(math.floor(lootBoost * 100))
 	end
 
 	return {
