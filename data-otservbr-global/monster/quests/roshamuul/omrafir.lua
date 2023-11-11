@@ -18,8 +18,8 @@ monster.bosstiary = {
 	bossRace = RARITY_NEMESIS,
 }
 
-monster.health = 322000
-monster.maxHealth = 322000
+monster.health = 500000
+monster.maxHealth = 500000
 monster.race = "fire"
 monster.corpse = 6068
 monster.speed = 240
