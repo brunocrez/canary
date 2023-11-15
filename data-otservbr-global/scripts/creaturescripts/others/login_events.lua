@@ -9,6 +9,7 @@ function loginEvents.onLogin(player)
 		"RookgaardAdvance",
 		"FamiliarLogin",
 		"FamiliarAdvance",
+		"RewardLevel",
 		--Quests
 		--Cults Of Tibia Quest
 		"LeidenHeal",
