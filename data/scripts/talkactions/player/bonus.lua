@@ -472,7 +472,7 @@ function bonus.onSay(player, words, param)
 
 	local lootBonus = (player:getSkillLevel(SKILL_FISHING) - 10) * 0.235
 
-	local text = "Total Outfits: " .. outfitCount .. " (+" .. outfitCount .. " Fist Fighting)\nTotal Mounts: " .. mountCount .. " (+" .. math.floor(mountCount / 5) .. " Fist Fighting)\nLoot Bonus: ".. math.floor(lootBonus) .. "%"
+	local text = "Total Outfits: " .. outfitCount .. " (+" .. outfitCount .. " Fist Fighting)\nTotal Mounts: " .. mountCount .. " (+" .. math.floor(mountCount / 5) .. " Fist Fighting)\nLoot Bonus: " .. math.floor(lootBonus) .. "%"
 	player:popupFYI(text)
 	return true
 end
